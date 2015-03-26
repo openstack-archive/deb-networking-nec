@@ -1,3 +1,4 @@
 tests-stop-overwritting-neutron-BaseTestCase-configuration-files.patch
 removes-base.override_nvalues-calls.patch
 fixed-wrong-path-for-nec.ini.patch
+fixes-path-to-nec-plugin.filters.patch
