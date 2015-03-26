@@ -1,0 +1,17 @@
+Description: Fixed wrong path for nec.ini
+ Upstream had a wrong path for nec.ini in the setup.cfg. This patch fixes that.
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2015-03-26
+
+--- networking-nec-2015.1~b2+git20150326+710a80087d.orig/setup.cfg
++++ networking-nec-2015.1~b2+git20150326+710a80087d/setup.cfg
+@@ -27,7 +27,7 @@ packages =
+ data_files =
+     etc/neutron/rootwrap.d =
+         etc/rootwrap.d/nec-plugin.filters
+-    etc/neutron/plugins/nec = etc/plugins/nec/nec.ini
++    etc/neutron/plugins/nec = etc/neutron/plugins/nec/nec.ini
+ 
+ [global]
+ setup-hooks =
