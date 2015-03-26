@@ -1,0 +1,39 @@
+Description: Stop using dist-packages/etc
+ Without this patch, unit tests are trying to read from dist-packages/etc
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2015-03-26
+
+--- networking-nec-2015.1~b2+git20150326+710a80087d.orig/networking_nec/tests/base.py
++++ networking-nec-2015.1~b2+git20150326+710a80087d/networking_nec/tests/base.py
+@@ -16,24 +16,13 @@
+ 
+ import os
+ 
+-from oslo_config import cfg
+-
+-import neutron
+ from neutron.tests.unit import test_db_plugin
+ from neutron.tests.unit import testlib_api
+ 
+ 
+-def override_nvalues():
+-    neutron_path = os.path.abspath(
+-        os.path.join(os.path.dirname(neutron.__file__), os.pardir))
+-    neutron_policy = os.path.join(neutron_path, 'etc/policy.json')
+-    cfg.CONF.set_override('policy_file', neutron_policy)
+-
+-
+ class NeutronDbPluginV2TestCase(test_db_plugin.NeutronDbPluginV2TestCase):
+ 
+     def setUp(self, plugin=None, service_plugins=None, ext_mgr=None):
+-        override_nvalues()
+         super(NeutronDbPluginV2TestCase, self).setUp(
+             plugin=plugin, ext_mgr=ext_mgr)
+ 
+@@ -41,5 +30,4 @@ class NeutronDbPluginV2TestCase(test_db_
+ class SqlTestCase(testlib_api.SqlTestCase):
+ 
+     def setUp(self):
+-        override_nvalues()
+         super(SqlTestCase, self).setUp()

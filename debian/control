@@ -1,0 +1,73 @@
+Source: networking-nec
+Section: net
+Priority: optional
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Thomas Goirand <zigo@debian.org>
+Build-Depends: debhelper (>= 9),
+               dh-python,
+               dh-systemd,
+               openstack-pkg-tools (>= 22~),
+               po-debconf,
+               python-all (>= 2.6),
+               python-pbr (>= 0.6),
+               python-sphinx (>= 1.2.1)
+Build-Depends-Indep: python-babel (>= 1.3),
+                     python-coverage (>= 3.6),
+                     python-eventlet (>= 0.16.1),
+                     python-fixtures (>= 0.3.14),
+                     python-hacking,
+                     python-mock (>= 1.0),
+                     python-netaddr (>= 0.7.12),
+                     python-neutron (>= 2015.1~b3),
+                     python-oslo.config (>= 1.9.0),
+                     python-oslo.i18n (>= 1.3.0),
+                     python-oslo.log (>= 0.4.0),
+                     python-oslo.messaging (>= 1.6.0),
+                     python-oslo.serialization (>= 1.2.0),
+                     python-oslo.utils (>= 1.2.0),
+                     python-oslosphinx (>= 2.2.0),
+                     python-oslotest (>= 1.2.0),
+                     python-requests (>= 2.2.0),
+                     python-requests-mock (>= 0.5.1),
+                     python-six (>= 1.9.0),
+                     python-sqlalchemy (>= 0.9.7),
+                     python-tempest-lib (>= 0.3.0),
+                     python-testscenarios (>= 0.4),
+                     python-testtools (>= 0.9.36),
+                     python-webob (>= 1.2.3),
+                     python-webtest (>= 2.0),
+                     subunit (>= 0.0.18),
+                     testrepository (>= 0.0.18)
+Standards-Version: 3.9.6
+Homepage: http://neutron.openstack.org/
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/networking-nec.git;a=summary
+Vcs-Git: git://anonscm.debian.org/openstack/networking-nec.git
+
+Package: python-networking-nec
+Architecture: all
+Section: python
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: python-babel (>= 1.3),
+         python-eventlet (>= 0.16.1),
+         python-netaddr (>= 0.7.12),
+         python-neutron (>= 2015.1~b3),
+         python-oslo.config (>= 1.9.0),
+         python-oslo.i18n (>= 1.3.0),
+         python-oslo.log (>= 0.4.0),
+         python-oslo.messaging (>= 1.6.0),
+         python-oslo.serialization (>= 1.2.0),
+         python-oslo.utils (>= 1.2.0),
+         python-requests (>= 2.2.0),
+         python-six (>= 1.9.0),
+         python-sqlalchemy (>= 0.9.7),
+         python-webob (>= 1.2.3),
+         ${misc:Depends},
+         ${python:Depends}
+Recommends: iputils-arping
+Description: OpenStack virtual network service - NEC plugin
+ Neutron provides an API to dynamically request and configure virtual networks.
+ These networks connect "interfaces" from other OpenStack services (such as
+ vNICs from Nova VMs). The Neutron API supports extensions to provide advanced
+ network capabilities, including QoS, ACLs, and network monitoring.
+ .
+ This package provides the Python files for the NEC plugin.
