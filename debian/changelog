@@ -5,5 +5,6 @@ networking-nec (2015.1~b2+git20150326+710a80087d-1) UNRELEASED; urgency=medium
 
   [ Ondřej Nový ]
   * Fixed VCS URLs (https).
+  * d/rules: Removed UPSTREAM_GIT, changed to default value
 
  -- Thomas Goirand <zigo@debian.org>  Tue, 17 Mar 2015 16:02:15 +0100
